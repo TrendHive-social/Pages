@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: #000; /*Setting Background color to black for the particle to be visible*/
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* to ensure particles are behind the slideshow */
+}
+
+#slideshow {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1; /* to ensure that slideshow is above particles */
+    color: #fff; /* Setting text color to be visible against the background */
+    text-align: center; /* to make the text appear at the center */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    font-size: 3em; /* increasing the font size of the slides */
+}
+
+.slide.visible {
+    opacity: 1;
+}
+
+.final-slide {  /*writing separately for the last slide so that we can do different changes*/
+    flex-direction: column;
+    text-align: center;
+}
+
+.final-slide h2 {
+    font-size: 50px; 
+    margin: 20px 0; 
+}
+
+.final-slide p {
+    font-size: 30px; 
+    margin-bottom: 20px; 
+}
+
+.final-slide button {
+    padding: 10px 20px; 
+    font-size: 30px; 
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text that is wrtten over the blue background color */
+    border: none; /* Removing border from the button */
+    border-radius: 5px; /* Round the corners of the button */
+    cursor: pointer; /* Change cursor to pointer when the cursor come to the button */
+    transition: background-color 0.3s; /* Smooth transition for hover effect for button when cursor comes over it */
+    margin: 20px auto; 
+}
+
+.final-slide button:hover {
+    background-color: #0056b3; /* Darker background on hover for transition */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker background on hover for transition */
+}
+
+.dots {   /*dots that are appearing below*/
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #f43b3b;
+}

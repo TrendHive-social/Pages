@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Sign Up - IMPULSO</title>
+    <link rel="stylesheet" href="login.css">
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"></script>
+</head>
+<body>
+    <div class="wavy-background"></div> <!-- Wavy background -->
+    
+    <div class="container">
+        <div class="login-container">
+            <h1>Login</h1>
+            <form id="email-login-form">
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit" id="email-login">Login</button>
+            </form>
+            <h2>Or</h2>
+            <button id="google-login">Sign in with Google</button>
+            <div id="login-message" class="message"></div>
+        </div>
+
+        <div class="signup-container">
+            <h1>Sign Up</h1>
+            <form id="email-signup-form">
+                <input type="text" id="firstName" placeholder="First Name" required>
+                <input type="text" id="lastName" placeholder="Last Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" id="submit-signup-form">Sign Up</button>
+            </form>
+            <div id="signup-message" class="message"></div>
+        </div>
+    </div>
+    <script type="module">
+        // Import required modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
+        import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyDvZLSXlO4V8rCj86aga5ekq84GvNy5KIY",
+          authDomain: "login-form-58675.firebaseapp.com",
+          projectId: "login-form-58675",
+          storageBucket: "login-form-58675.appspot.com",
+          messagingSenderId: "621585474697",
+          appId: "1:621585474697:web:d8b943c246c63359811258"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Utility function to display messages
+        function showMessage(message, divId) {
+            const messageDiv = document.getElementById(divId);
+            messageDiv.style.display = "block";
+            messageDiv.innerHTML = message;
+            messageDiv.style.opacity = 1;
+
+            setTimeout(() => {
+                messageDiv.style.opacity = 0;
+            }, 5000);
+        }
+
+        // Google sign-in function
+        document.getElementById('google-login').addEventListener('click', () => {
+            const provider = new GoogleAuthProvider();
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    // User signed in successfully
+                    const user = result.user;
+                    console.log('User signed in: ', user);
+                    // Redirect to home page
+                    window.location.href = 'home.html'; // Change to your home page URL
+                })
+                .catch((error) => {
+                    console.error('Error signing in: ', error);
+                });
+        });
+
+        // Email and password sign-in function
+        document.getElementById('email-login-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value.trim();
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // User signed in successfully
+                    const user = userCredential.user;
+                    console.log('User signed in: ', user);
+                    // Redirect to home page
+                    window.location.href = 'home.html'; // Change to your home page URL
+                })
+                .catch((error) => {
+                    console.error('Error signing in: ', error);
+                    showMessage('Invalid email or password', 'login-message');
+                });
+        });
+
+        // Email and password sign-up function
+        document.getElementById('email-signup-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+
+            if (!email || !password || !firstName || !lastName) {
+                showMessage('Please fill out all fields', 'signup-message');
+                return;
+            }
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    const userData = {
+                        email: email,
+                        firstName: firstName,
+                        lastName: lastName,
+                    };
+
+                    // Store user details in Firestore
+                    const docRef = doc(db, "users", user.uid);
+                    return setDoc(docRef, userData);
+                })
+                .then(() => {
+                    showMessage('Account created successfully!', 'signup-message');
+                    setTimeout(() => {
+                        window.location.href = 'index.html'; // Redirect to the home page
+                    }, 2000);
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    if (errorCode === 'auth/email-already-in-use') {
+                        showMessage('Email already in use', 'signup-message');
+                    } else {
+                        showMessage('Unable to create account', 'signup-message');
+                    }
+                    console.error('Error creating account:', error);
+                });
+        });
+    </script>
+</body>
+</html>
