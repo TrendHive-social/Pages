@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Niche Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for Data Visualization -->
+  <style>
+    /* General Body Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f4f7fc; /* Light background to enhance readability */
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    /* Main Header */
+    h1 {
+      font-size: 40px;
+      margin-top: 30px;
+      font-weight: 700;
+      color: #6200ea; /* Purple for dynamic and futuristic feel */
+    }
+
+    /* Content Container */
+    .content-container {
+      width: 90%;
+      max-width: 1200px;
+      margin-top: 50px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #6200ea;
+      font-weight: 600;
+      border-bottom: 2px solid #6200ea;
+      padding-bottom: 5px;
+    }
+
+    /* Section Content */
+    .section {
+      margin-bottom: 50px;
+    }
+
+    /* Section Text */
+    .section p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    /* Icon Section Layout */
+    .section-icons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .icon-box {
+      text-align: center;
+      background-color: #6200ea;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      flex: 1;
+      margin: 0 10px;
+    }
+
+    .icon-box i {
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    /* Chart Containers */
+    .chart-container {
+      margin-top: 40px;
+      width: 100%;
+      height: 400px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .pie-chart {
+      height: 300px;
+    }
+
+    /* Table Styling */
+    .table-container {
+      margin-top: 40px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px 18px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #6200ea;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #f1f5f9;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Gaming Niche Insights</h1>
+
+  <div class="content-container">
+    <!-- General Information Section -->
+    <div class="section">
+      <div class="section-title">General Information</div>
+      <p>The gaming industry is one of the fastest-growing sectors worldwide. With a global audience of billions, gaming has become a dominant form of entertainment. This page offers insights into the key trends, influencers, and monetization opportunities in the gaming niche.</p>
+    </div>
+
+    <!-- Gaming Market Breakdown (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Gaming Market Breakdown</div>
+      <p>Here’s the current distribution of revenue in the gaming market:</p>
+      <div class="chart-container pie-chart">
+        <canvas id="marketSizeChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Streaming Trends (Bar Chart) -->
+    <div class="section">
+      <div class="section-title">Streaming Trends in Gaming</div>
+      <p>Live streaming platforms like Twitch and YouTube Gaming are growing rapidly. Here's how gaming content streaming has evolved:</p>
+      <div class="chart-container">
+        <canvas id="streamingTrendsChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Popular Gaming Creators (Icons) -->
+    <div class="section">
+      <div class="section-title">Top Gaming Creators</div>
+      <p>Here are some of the biggest names in the gaming community:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-gamepad"></i>
+          <p>Ninja (25M Followers)</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-gamepad"></i>
+          <p>PewDiePie (110M Followers)</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-gamepad"></i>
+          <p>Pokimane (10M Followers)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audience Demographics (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Gaming Audience Demographics</div>
+      <p>Here’s a breakdown of the typical gaming audience:</p>
+      <div class="chart-container">
+        <canvas id="audienceDemographicsChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Monetization Opportunities -->
+    <div class="section">
+      <div class="section-title">Monetization Opportunities</div>
+      <p>Gamers and content creators have multiple ways to monetize their content:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-trophy"></i>
+          <p>Prize Money & Tournaments</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-ad"></i>
+          <p>Sponsored Streams</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-dollar-sign"></i>
+          <p>Subscriptions & Donations</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Gaming Market Breakdown (Pie Chart)
+    var ctx1 = document.getElementById('marketSizeChart').getContext('2d');
+    var marketSizeChart = new Chart(ctx1, {
+      type: 'pie',
+      data: {
+        labels: ['Mobile Games', 'Console Games', 'PC Games', 'In-Game Purchases'],
+        datasets: [{
+          data: [40, 35, 15, 10],
+          backgroundColor: ['#6200ea', '#ff5722', '#4caf50', '#ffeb3b']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Streaming Trends (Bar Chart)
+    var ctx2 = document.getElementById('streamingTrendsChart').getContext('2d');
+    var streamingTrendsChart = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Live Streaming Growth (%)',
+          data: [25, 35, 45, 60, 75],
+          backgroundColor: '#6200ea',
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Gaming Audience Demographics (Pie Chart)
+    var ctx3 = document.getElementById('audienceDemographicsChart').getContext('2d');
+    var audienceDemographicsChart = new Chart(ctx3, {
+      type: 'pie',
+      data: {
+        labels: ['Male (70%)', 'Female (30%)'],
+        datasets: [{
+          data: [70, 30],
+          backgroundColor: ['#6200ea', '#ff5722']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

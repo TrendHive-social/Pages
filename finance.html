@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Niche Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for Data Visualization -->
+  <style>
+    /* General Body Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f1f4f8; /* Light, neutral background to ensure content stands out */
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    /* Main Header */
+    h1 {
+      font-size: 40px;
+      margin-top: 30px;
+      font-weight: 700;
+      color: #1e88e5; /* Trustworthy blue for finance */
+    }
+
+    /* Content Container */
+    .content-container {
+      width: 90%;
+      max-width: 1200px;
+      margin-top: 50px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #1e88e5;
+      font-weight: 600;
+      border-bottom: 2px solid #1e88e5;
+      padding-bottom: 5px;
+    }
+
+    /* Section Content */
+    .section {
+      margin-bottom: 50px;
+    }
+
+    /* Section Text */
+    .section p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    /* Icon Section Layout */
+    .section-icons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .icon-box {
+      text-align: center;
+      background-color: #1e88e5;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      flex: 1;
+      margin: 0 10px;
+    }
+
+    .icon-box i {
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    /* Chart Containers */
+    .chart-container {
+      margin-top: 40px;
+      width: 100%;
+      height: 400px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .pie-chart {
+      height: 300px;
+    }
+
+    /* Table Styling */
+    .table-container {
+      margin-top: 40px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px 18px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #1e88e5;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #f1f5f9;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Finance Niche Insights</h1>
+
+  <div class="content-container">
+    <!-- General Information Section -->
+    <div class="section">
+      <div class="section-title">General Information</div>
+      <p>The finance niche has rapidly grown, with increasing interest in personal finance, investing, and wealth management. This page provides key insights and data for creators in the finance space to help you engage with your audience and expand your influence.</p>
+    </div>
+
+    <!-- Market Overview (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Finance Market Breakdown</div>
+      <p>The global finance industry includes a wide range of segments. Here's how the finance market is broken down:</p>
+      <div class="chart-container pie-chart">
+        <canvas id="marketSizeChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Investment Trends (Bar Chart) -->
+    <div class="section">
+      <div class="section-title">Investment Trends Over Time</div>
+      <p>Here's how investment trends have evolved in the last few years, showcasing the rise of various asset classes:</p>
+      <div class="chart-container">
+        <canvas id="investmentTrendsChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Popular Finance Creators (Icons) -->
+    <div class="section">
+      <div class="section-title">Popular Finance Creators</div>
+      <p>Leading influencers in the finance niche who have helped shape the industry:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-chart-line"></i>
+          <p>Dave Ramsey</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-dollar-sign"></i>
+          <p>Graham Stephan</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-briefcase"></i>
+          <p>Robert Kiyosaki</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Financial Literacy (Line Chart) -->
+    <div class="section">
+      <div class="section-title">Financial Literacy Growth</div>
+      <p>Understanding the growth of financial literacy over the years, especially with the rise of digital platforms:</p>
+      <div class="chart-container">
+        <canvas id="financialLiteracyChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Finance Audience Demographics (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Finance Audience Demographics</div>
+      <p>Here’s a breakdown of the typical audience for financial content:</p>
+      <div class="chart-container">
+        <canvas id="audienceDemographicsChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Monetization Opportunities -->
+    <div class="section">
+      <div class="section-title">Monetization Opportunities</div>
+      <p>Finance creators can monetize through various methods. Here's how:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-briefcase"></i>
+          <p>Consulting Services</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-ad"></i>
+          <p>Affiliate Marketing</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-book"></i>
+          <p>Course Creation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Finance Market Breakdown (Pie Chart)
+    var ctx1 = document.getElementById('marketSizeChart').getContext('2d');
+    var marketSizeChart = new Chart(ctx1, {
+      type: 'pie',
+      data: {
+        labels: ['Investment', 'Banking', 'Insurance', 'Personal Finance'],
+        datasets: [{
+          data: [40, 25, 20, 15],
+          backgroundColor: ['#1e88e5', '#ffbc42', '#66bb6a', '#ffee58']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Investment Trends Chart (Bar Chart)
+    var ctx2 = document.getElementById('investmentTrendsChart').getContext('2d');
+    var investmentTrendsChart = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Investment in Stocks (%)',
+          data: [25, 30, 35, 40, 45],
+          backgroundColor: '#1e88e5',
+        }, {
+          label: 'Investment in Crypto (%)',
+          data: [5, 10, 15, 25, 40],
+          backgroundColor: '#ff7043',
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Financial Literacy Growth (Line Chart)
+    var ctx3 = document.getElementById('financialLiteracyChart').getContext('2d');
+    var financialLiteracyChart = new Chart(ctx3, {
+      type: 'line',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Financial Literacy (%)',
+          data: [30, 40, 50, 60, 75],
+          borderColor: '#66bb6a',
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Audience Demographics (Pie Chart)
+    var ctx4 = document.getElementById('audienceDemographicsChart').getContext('2d');
+    var audienceDemographicsChart = new Chart(ctx4, {
+      type: 'pie',
+      data: {
+        labels: ['Women (50%)', 'Men (50%)'],
+        datasets: [{
+          data: [50, 50],
+          backgroundColor: ['#1e88e5', '#66bb6a']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

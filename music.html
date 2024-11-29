@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Niche Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for Data Visualization -->
+  <style>
+    /* General Body Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f7f9fc; /* Light background to allow content to pop */
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    /* Main Header */
+    h1 {
+      font-size: 40px;
+      margin-top: 30px;
+      font-weight: 700;
+      color: #d32f2f; /* Bold red for music energy and excitement */
+    }
+
+    /* Content Container */
+    .content-container {
+      width: 90%;
+      max-width: 1200px;
+      margin-top: 50px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #d32f2f;
+      font-weight: 600;
+      border-bottom: 2px solid #d32f2f;
+      padding-bottom: 5px;
+    }
+
+    /* Section Content */
+    .section {
+      margin-bottom: 50px;
+    }
+
+    /* Section Text */
+    .section p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    /* Icon Section Layout */
+    .section-icons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .icon-box {
+      text-align: center;
+      background-color: #d32f2f;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      flex: 1;
+      margin: 0 10px;
+    }
+
+    .icon-box i {
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    /* Chart Containers */
+    .chart-container {
+      margin-top: 40px;
+      width: 100%;
+      height: 400px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .pie-chart {
+      height: 300px;
+    }
+
+    /* Table Styling */
+    .table-container {
+      margin-top: 40px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px 18px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #d32f2f;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #f1f5f9;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Music Niche Insights</h1>
+
+  <div class="content-container">
+    <!-- General Information Section -->
+    <div class="section">
+      <div class="section-title">General Information</div>
+      <p>The music industry is vast, covering genres, platforms, and numerous avenues for creators. This page provides essential insights and data for creators in the music niche to help grow their influence and understand their audience.</p>
+    </div>
+
+    <!-- Music Market Breakdown (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Music Market Breakdown</div>
+      <p>The global music market consists of various revenue segments. Here’s how it’s distributed:</p>
+      <div class="chart-container pie-chart">
+        <canvas id="marketSizeChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Streaming Trends (Bar Chart) -->
+    <div class="section">
+      <div class="section-title">Music Streaming Trends Over Time</div>
+      <p>Streaming has revolutionized how we consume music. This chart shows how streaming has grown over the years:</p>
+      <div class="chart-container">
+        <canvas id="streamingTrendsChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Popular Music Creators (Icons) -->
+    <div class="section">
+      <div class="section-title">Popular Music Creators</div>
+      <p>Leading influencers in the music space who have shaped the industry:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-music"></i>
+          <p>Ariana Grande</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-guitar"></i>
+          <p>Ed Sheeran</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-headphones"></i>
+          <p>Billie Eilish</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audience Demographics (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Music Audience Demographics</div>
+      <p>Here's a breakdown of the typical audience for music content:</p>
+      <div class="chart-container">
+        <canvas id="audienceDemographicsChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Monetization Opportunities -->
+    <div class="section">
+      <div class="section-title">Monetization Opportunities</div>
+      <p>Music creators can monetize through various methods. Here are some popular ways:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-play-circle"></i>
+          <p>Streaming Royalties</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-ticket-alt"></i>
+          <p>Live Performances</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-music"></i>
+          <p>Music Merchandising</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Music Market Breakdown (Pie Chart)
+    var ctx1 = document.getElementById('marketSizeChart').getContext('2d');
+    var marketSizeChart = new Chart(ctx1, {
+      type: 'pie',
+      data: {
+        labels: ['Streaming', 'Live Performances', 'Physical Sales', 'Digital Downloads'],
+        datasets: [{
+          data: [50, 25, 15, 10],
+          backgroundColor: ['#d32f2f', '#ff7043', '#66bb6a', '#ffee58']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Music Streaming Trends (Bar Chart)
+    var ctx2 = document.getElementById('streamingTrendsChart').getContext('2d');
+    var streamingTrendsChart = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Music Streaming (%)',
+          data: [50, 55, 60, 70, 80],
+          backgroundColor: '#d32f2f',
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Music Audience Demographics (Pie Chart)
+    var ctx3 = document.getElementById('audienceDemographicsChart').getContext('2d');
+    var audienceDemographicsChart = new Chart(ctx3, {
+      type: 'pie',
+      data: {
+        labels: ['Men (45%)', 'Women (55%)'],
+        datasets: [{
+          data: [45, 55],
+          backgroundColor: ['#d32f2f', '#66bb6a']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

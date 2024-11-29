@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography Niche Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for Data Visualization -->
+  <style>
+    /* General Body Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f4f4f4; /* Light gray background for a clean look */
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    /* Main Header */
+    h1 {
+      font-size: 40px;
+      margin-top: 30px;
+      font-weight: 700;
+      color: #00bcd4; /* A vibrant, energetic color reflecting photography creativity */
+    }
+
+    /* Content Container */
+    .content-container {
+      width: 90%;
+      max-width: 1200px;
+      margin-top: 50px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #00bcd4;
+      font-weight: 600;
+      border-bottom: 2px solid #00bcd4;
+      padding-bottom: 5px;
+    }
+
+    /* Section Content */
+    .section {
+      margin-bottom: 50px;
+    }
+
+    /* Section Text */
+    .section p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    /* Icon Section Layout */
+    .section-icons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .icon-box {
+      text-align: center;
+      background-color: #00bcd4;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      flex: 1;
+      margin: 0 10px;
+    }
+
+    .icon-box i {
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    /* Chart Containers */
+    .chart-container {
+      margin-top: 40px;
+      width: 100%;
+      height: 400px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .pie-chart {
+      height: 300px;
+    }
+
+    /* Table Styling */
+    .table-container {
+      margin-top: 40px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px 18px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #00bcd4;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #f1f5f9;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Photography Niche Insights</h1>
+
+  <div class="content-container">
+    <!-- General Information Section -->
+    <div class="section">
+      <div class="section-title">General Information</div>
+      <p>The photography industry has rapidly evolved with the rise of digital technology, mobile devices, and social media platforms. From professional photography to smartphone users, the niche has grown immensely. This page presents insights into key trends, tools, and audience breakdown in photography.</p>
+    </div>
+
+    <!-- Photography Equipment Breakdown (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Photography Equipment Breakdown</div>
+      <p>This chart represents the distribution of photography equipment usage across various categories:</p>
+      <div class="chart-container pie-chart">
+        <canvas id="equipmentChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Photography Trends (Bar Chart) -->
+    <div class="section">
+      <div class="section-title">Photography Trends Over the Years</div>
+      <p>Explore how photography trends have evolved, including changes in popularity for certain styles and formats:</p>
+      <div class="chart-container">
+        <canvas id="trendsChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Popular Photography Styles (Icons) -->
+    <div class="section">
+      <div class="section-title">Popular Photography Styles</div>
+      <p>Here are some of the most popular photography styles in today’s market:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-camera-retro"></i>
+          <p>Portrait Photography</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-camera"></i>
+          <p>Landscape Photography</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-images"></i>
+          <p>Fashion Photography</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audience Demographics (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Audience Demographics</div>
+      <p>Here’s a breakdown of the typical audience for photography content:</p>
+      <div class="chart-container">
+        <canvas id="audienceDemographicsChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Monetization Opportunities -->
+    <div class="section">
+      <div class="section-title">Monetization Opportunities</div>
+      <p>Photographers have several ways to monetize their work, from selling prints to offering services:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-camera-retro"></i>
+          <p>Print Sales</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-dollar-sign"></i>
+          <p>Stock Photography</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-video"></i>
+          <p>Photography Workshops</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Photography Equipment Breakdown (Pie Chart)
+    var ctx1 = document.getElementById('equipmentChart').getContext('2d');
+    var equipmentChart = new Chart(ctx1, {
+      type: 'pie',
+      data: {
+        labels: ['DSLR Cameras', 'Mirrorless Cameras', 'Smartphones', 'Action Cameras', 'Others'],
+        datasets: [{
+          data: [35, 30, 25, 5, 5],
+          backgroundColor: ['#00bcd4', '#ff9800', '#e91e63', '#4caf50', '#9c27b0']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Photography Trends Over the Years (Bar Chart)
+    var ctx2 = document.getElementById('trendsChart').getContext('2d');
+    var trendsChart = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Photography Trend Popularity (%)',
+          data: [25, 30, 35, 45, 50],
+          backgroundColor: '#00bcd4',
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Audience Demographics (Pie Chart)
+    var ctx3 = document.getElementById('audienceDemographicsChart').getContext('2d');
+    var audienceDemographicsChart = new Chart(ctx3, {
+      type: 'pie',
+      data: {
+        labels: ['Amateur Photographers (40%)', 'Professional Photographers (30%)', 'Photography Enthusiasts (30%)'],
+        datasets: [{
+          data: [40, 30, 30],
+          backgroundColor: ['#00bcd4', '#4caf50', '#9c27b0']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

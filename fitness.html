@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Niche Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for Data Visualization -->
+  <style>
+    /* Resetting body styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f8f9fa; /* Soft background color for fitness */
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    /* Main header */
+    h1 {
+      font-size: 42px;
+      margin-top: 30px;
+      font-weight: 700;
+      color: #1e8e3e; /* Vibrant green for fitness */
+    }
+
+    /* Main content container */
+    .content-container {
+      width: 90%;
+      max-width: 1200px;
+      margin-top: 50px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Section titles */
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #1e8e3e;
+      font-weight: 600;
+      border-bottom: 2px solid #1e8e3e;
+      padding-bottom: 5px;
+    }
+
+    /* Section content */
+    .section {
+      margin-bottom: 50px;
+    }
+
+    /* Section paragraph text */
+    .section p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    /* Icon section layout */
+    .section-icons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .icon-box {
+      text-align: center;
+      background-color: #1e8e3e;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      flex: 1;
+      margin: 0 10px;
+    }
+
+    .icon-box i {
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    /* Chart containers */
+    .chart-container {
+      margin-top: 40px;
+      width: 100%;
+      height: 400px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .pie-chart {
+      height: 300px;
+    }
+
+    /* Table section styling */
+    .table-container {
+      margin-top: 40px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px 18px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #1e8e3e;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #f1f5f9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Fitness Niche Insights</h1>
+
+  <div class="content-container">
+    <!-- General Information Section -->
+    <div class="section">
+      <div class="section-title">General Information</div>
+      <p>Welcome to the Fitness Niche Insights! Here, you'll find important trends, influencer data, key statistics, and other insights to help you excel in the fitness industry.</p>
+    </div>
+
+    <!-- Market Size Visualization (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Market Size and Growth</div>
+      <p>The fitness industry continues to grow, driven by increasing awareness of physical health and wellness:</p>
+      <div class="chart-container pie-chart">
+        <canvas id="marketSizeChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Best Time to Post Visualization (Line Chart) -->
+    <div class="section">
+      <div class="section-title">Best Time to Post Content</div>
+      <p>Optimize your engagement by posting content during peak hours:</p>
+      <div class="chart-container">
+        <canvas id="timeToPostChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Famous Creators and Engagement Data -->
+    <div class="section">
+      <div class="section-title">Top Fitness Influencers</div>
+      <p>Check out these influential figures who have significantly impacted the fitness community:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-dumbbell"></i>
+          <p>Kayla Itsines (14M Followers)</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-person-running"></i>
+          <p>Chris Hemsworth (8M Followers)</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-heartbeat"></i>
+          <p>Cassey Ho (Blogilates) (6M Followers)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Growth Visualization (Bar Chart) -->
+    <div class="section">
+      <div class="section-title">Fitness Content Growth</div>
+      <p>Fitness content has been growing at a rapid rate across multiple platforms, with engagement steadily rising:</p>
+      <div class="chart-container">
+        <canvas id="contentGrowthChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Key Trends in the Niche -->
+    <div class="section">
+      <div class="section-title">Key Trends in Fitness</div>
+      <p>The fitness industry is continuously evolving. Here are some of the key trends:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-yoga"></i>
+          <p>Virtual Fitness Classes</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-weight"></i>
+          <p>Home Workouts</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-running"></i>
+          <p>Wearable Fitness Tech</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audience Demographics Visualization (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Fitness Audience Demographics</div>
+      <p>Here's a look at the demographics of those consuming fitness content:</p>
+      <div class="chart-container">
+        <canvas id="audienceDemographicsChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Monetization Opportunities -->
+    <div class="section">
+      <div class="section-title">Monetization Opportunities</div>
+      <p>Learn about various ways to monetize your fitness-related content:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-gift"></i>
+          <p>Product Sponsorships</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-video"></i>
+          <p>Paid Partnerships</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-money-check-alt"></i>
+          <p>Subscription Models</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Market Size Chart (Pie Chart)
+    var ctx1 = document.getElementById('marketSizeChart').getContext('2d');
+    var marketSizeChart = new Chart(ctx1, {
+      type: 'pie',
+      data: {
+        labels: ['Fitness Gear', 'Online Fitness Classes', 'Health Supplements', 'Fitness Apps'],
+        datasets: [{
+          data: [35, 25, 20, 20],
+          backgroundColor: ['#1e8e3e', '#f39c12', '#3498db', '#e74c3c']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Time to Post Content Chart (Line Chart)
+    var ctx2 = document.getElementById('timeToPostChart').getContext('2d');
+    var timeToPostChart = new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ['6 AM', '9 AM', '12 PM', '3 PM', '6 PM', '9 PM'],
+        datasets: [{
+          label: 'Engagement',
+          data: [60, 80, 90, 95, 85, 75],
+          borderColor: '#3498db',
+          fill: false,
+          tension: 0.1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Content Growth Chart (Bar Chart)
+    var ctx3 = document.getElementById('contentGrowthChart').getContext('2d');
+    var contentGrowthChart = new Chart(ctx3, {
+      type: 'bar',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Content Growth',
+          data: [100, 150, 200, 250, 300],
+          backgroundColor: '#f39c12',
+          borderColor: '#f39c12',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    });
+
+    // Audience Demographics Chart (Pie Chart)
+    var ctx4 = document.getElementById('audienceDemographicsChart').getContext('2d');
+    var audienceDemographicsChart = new Chart(ctx4, {
+      type: 'pie',
+      data: {
+        labels: ['18-34 years', '35-44 years', '45+ years'],
+        datasets: [{
+          data: [50, 35, 15],
+          backgroundColor: ['#1e8e3e', '#9b59b6', '#e74c3c']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

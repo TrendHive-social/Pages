@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select a Niche</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+    h1 {
+      font-size: 40px;
+      font-weight: 600;
+      color: #333;
+      margin-top: 20px;
+    }
+    p {
+      font-size: 18px;
+      color: #777;
+      margin-bottom: 40px;
+    }
+    .niche-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+      max-width: 1000px;
+      margin-top: 20px;
+    }
+    .niche-card {
+      background-color: #fff;
+      width: 160px;
+      height: 200px;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #333;
+      font-weight: 600;
+    }
+    .niche-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+    .niche-card img {
+      width: 80%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .niche-card p {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    .niche-card::before {
+      content: "";
+      background-color: #3b82f6;
+      width: 100%;
+      height: 4px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .niche-card:hover::before {
+      background-color: #10b981;
+    }
+    @media (max-width: 768px) {
+      .niche-card {
+        width: 140px;
+        height: 180px;
+      }
+    }
+    @media (max-width: 480px) {
+      .niche-card {
+        width: 120px;
+        height: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Select a Niche</h1>
+  <p>Click on a niche to explore more content</p>
+
+  <div class="niche-container">
+    <!-- Tech Niche -->
+    <div class="niche-card" onclick="window.location.href='tech.html'">
+      <img src="https://www.jadeglobal.com/sites/default/files/2021-07/top-hi-tech-trends-blog-banner-min.jpg" alt="Tech Niche">
+      <p>Tech</p>
+    </div>
+    
+    <!-- Fashion Niche -->
+    <div class="niche-card" onclick="window.location.href='fashion.html'">
+      <img src="https://assets.vogue.com/photos/61314eddbaeca5960e91f20a/3:4/w_748%2Cc_limit/Copenhagen20SS202020day20420by20.jpeg" alt="Fashion Niche">
+      <p>Fashion</p>
+    </div>
+    
+    <!-- Health Niche -->
+    <div class="niche-card" onclick="window.location.href='health.html'">
+      <img src="https://online.hbs.edu/Style%20Library/api/resize.aspx?imgpath=/online/PublishingImages/blog/health-care-economics.jpg&w=1200&h=630" alt="Health Niche">
+      <p>Health</p>
+    </div>
+    
+    <!-- Fitness Niche -->
+    <div class="niche-card" onclick="window.location.href='fitness.html'">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREFUextB66BSdeI0Lv_TTCg0UJkbKpBZo0wg&s" alt="Fitness Niche">
+      <p>Fitness</p>
+    </div>
+    
+    <!-- Sports Niche -->
+    <div class="niche-card" onclick="window.location.href='sports.html'">
+      <img src="https://superblog.supercdn.cloud/site_cuid_clr6oh1no0006rmr89yhkxgu8/images/various-sport-equipments-generative-ai-1706958639790-compressed.jpg" alt="Sports Niche">
+      <p>Sports</p>
+    </div>
+    
+    <!-- Education Niche -->
+    <div class="niche-card" onclick="window.location.href='education.html'">
+      <img src="https://images.shiksha.com/mediadata/shikshaOnline/mailers/2021/naukri-learning/oct/27oct-v3/education.jpg" alt="Education Niche">
+      <p>Education</p>
+    </div>
+    
+    <!-- Travel Niche -->
+    <div class="niche-card" onclick="window.location.href='travel.html'">
+      <img src="https://media.istockphoto.com/id/1500563478/photo/traveler-asian-woman-relax-and-travel-on-thai-longtail-boat-in-ratchaprapha-dam-at-khao-sok.jpg?s=612x612&w=0&k=20&c=_bb2PdPJMtY9KmNNBSFY6w_TOcC98we45LvsYoa48p8=" alt="Travel Niche">
+      <p>Travel</p>
+    </div>
+    
+    <!-- Food Niche -->
+    <div class="niche-card" onclick="window.location.href='food.html'">
+      <img src="https://media.istockphoto.com/id/1457433817/photo/group-of-healthy-food-for-flexitarian-diet.jpg?s=612x612&w=0&k=20&c=v48RE0ZNWpMZOlSp13KdF1yFDmidorO2pZTu2Idmd3M=" alt="Food Niche">
+      <p>Food</p>
+    </div>
+    
+    <!-- Finance Niche -->
+    <div class="niche-card" onclick="window.location.href='finance.html'">
+      <img src="https://www.thegef.org/sites/default/files/styles/banner_image/public/2021-11/topics_banner_blendedfinance.jpg?h=4e9a1ef8&itok=wkLt635t" alt="Finance Niche">
+      <p>Finance</p>
+    </div>
+    
+    <!-- Music Niche -->
+    <div class="niche-card" onclick="window.location.href='music.html'">
+      <img src="https://static.vecteezy.com/system/resources/previews/029/573/477/non_2x/headphones-for-listening-to-music-and-enjoying-the-bass-and-beats-bright-arc-headphones-free-photo.jpg" alt="Music Niche">
+      <p>Music</p>
+    </div>
+    
+    <!-- Gaming Niche -->
+    <div class="niche-card" onclick="window.location.href='gaming.html'">
+      <img src="https://t4.ftcdn.net/jpg/05/64/31/67/360_F_564316725_zE8llusnCk3Sfr9rdfKya6fV7BQbjfyV.jpg" alt="Gaming Niche">
+      <p>Gaming</p>
+    </div>
+    
+    <!-- Art Niche -->
+    <div class="niche-card" onclick="window.location.href='art.html'">
+      <img src="https://media.istockphoto.com/id/636761588/photo/used-brushes-on-an-artists-palette-of-colorful-oil-paint.jpg?s=612x612&w=0&k=20&c=38YQxVJVWnNfvGtlb7AXMx_ItyHZMEdmWenNkWNQ91g=" alt="Art Niche">
+      <p>Art</p>
+    </div>
+    
+    <!-- Business Niche -->
+    <div class="niche-card" onclick="window.location.href='business.html'">
+      <img src="https://t4.ftcdn.net/jpg/06/48/39/19/360_F_648391979_uMz6EwAlKNIJnK9r46UpTiM17nT8GuLl.jpg" alt="Business Niche">
+      <p>Business</p>
+    </div>
+
+    <!-- Lifestyle Niche -->
+    <div class="niche-card" onclick="window.location.href='lifestyle.html'">
+      <img src="https://images.pexels.com/photos/1223649/pexels-photo-1223649.jpeg?cs=srgb&dl=pexels-ollivves-1223649.jpg&fm=jpg" alt="Lifestyle Niche">
+      <p>Lifestyle</p>
+    </div>
+
+    <!-- Photography Niche -->
+    <div class="niche-card" onclick="window.location.href='photography.html'">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/027/104/602/small/silhouette-ofgrapher-at-sunset-captured-in-a-free-photo.jpg" alt="Photography Niche">
+      <p>Photography</p>
+    </div>
+
+
+    
+  </div>
+
+</body>
+</html>

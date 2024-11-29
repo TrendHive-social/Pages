@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education Niche Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for Data Visualization -->
+  <style>
+    /* Resetting body styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fafafa; /* Light background for education theme */
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    /* Main header */
+    h1 {
+      font-size: 42px;
+      margin-top: 30px;
+      font-weight: 700;
+      color: #4CAF50; /* Fresh green color to represent growth and learning */
+    }
+
+    /* Main content container */
+    .content-container {
+      width: 90%;
+      max-width: 1200px;
+      margin-top: 50px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Section titles */
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #4CAF50;
+      font-weight: 600;
+      border-bottom: 2px solid #4CAF50;
+      padding-bottom: 5px;
+    }
+
+    /* Section content */
+    .section {
+      margin-bottom: 50px;
+    }
+
+    /* Section paragraph text */
+    .section p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    /* Icon section layout */
+    .section-icons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .icon-box {
+      text-align: center;
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      flex: 1;
+      margin: 0 10px;
+    }
+
+    .icon-box i {
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    /* Chart containers */
+    .chart-container {
+      margin-top: 40px;
+      width: 100%;
+      height: 400px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .pie-chart {
+      height: 300px;
+    }
+
+    /* Table section styling */
+    .table-container {
+      margin-top: 40px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px 18px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #f1f5f9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Education Niche Insights</h1>
+
+  <div class="content-container">
+    <!-- General Information Section -->
+    <div class="section">
+      <div class="section-title">General Information</div>
+      <p>The education sector is rapidly evolving, with a focus on online learning, personalized education, and digital tools for engagement. This page provides key insights into the current trends, popular platforms, and monetization strategies within education.</p>
+    </div>
+
+    <!-- Market Size Visualization (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Education Market Breakdown</div>
+      <p>Education spending continues to grow globally. Here's a breakdown of where the major investments are being made in education:</p>
+      <div class="chart-container pie-chart">
+        <canvas id="marketSizeChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Online Learning Engagement (Line Chart) -->
+    <div class="section">
+      <div class="section-title">Online Learning Engagement</div>
+      <p>The demand for online learning platforms has surged. Here's how engagement has increased over the past few years:</p>
+      <div class="chart-container">
+        <canvas id="onlineLearningChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Top Education Platforms Section -->
+    <div class="section">
+      <div class="section-title">Top Education Platforms</div>
+      <p>These platforms are revolutionizing how we access education:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-laptop-code"></i>
+          <p>Coursera</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-graduation-cap"></i>
+          <p>edX</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-book"></i>
+          <p>Udemy</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audience Demographics Visualization (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Education Audience Demographics</div>
+      <p>Here’s a breakdown of the education audience and which groups engage the most with online learning platforms:</p>
+      <div class="chart-container">
+        <canvas id="audienceDemographicsChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Education Content Growth (Bar Chart) -->
+    <div class="section">
+      <div class="section-title">Growth in Educational Content</div>
+      <p>The amount of content available for online learning has grown exponentially. Here’s the growth trajectory over the past 5 years:</p>
+      <div class="chart-container">
+        <canvas id="contentGrowthChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Education Trends Section -->
+    <div class="section">
+      <div class="section-title">Top Education Trends</div>
+      <p>The education sector is rapidly evolving. Here are some emerging trends:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <p>Personalized Learning</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <p>Cloud-Based Education</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-headset"></i>
+          <p>AR/VR Learning</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Monetization Strategies Section -->
+    <div class="section">
+      <div class="section-title">Monetization Opportunities</div>
+      <p>There are several ways to monetize education content online:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-sponsor"></i>
+          <p>Course Subscription</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-dollar-sign"></i>
+          <p>Affiliate Marketing</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-ad"></i>
+          <p>Ad Revenue</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Education Market Breakdown (Pie Chart)
+    var ctx1 = document.getElementById('marketSizeChart').getContext('2d');
+    var marketSizeChart = new Chart(ctx1, {
+      type: 'pie',
+      data: {
+        labels: ['Higher Education', 'Online Learning', 'Corporate Training', 'K-12 Education'],
+        datasets: [{
+          data: [30, 40, 20, 10],
+          backgroundColor: ['#4CAF50', '#3498db', '#f39c12', '#9b59b6']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Online Learning Engagement (Line Chart)
+    var ctx2 = document.getElementById('onlineLearningChart').getContext('2d');
+    var onlineLearningChart = new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Online Learning Engagement',
+          data: [50, 70, 90, 110, 130],
+          borderColor: '#3498db',
+          fill: false,
+          tension: 0.1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Audience Demographics (Pie Chart)
+    var ctx3 = document.getElementById('audienceDemographicsChart').getContext('2d');
+    var audienceDemographicsChart = new Chart(ctx3, {
+      type: 'pie',
+      data: {
+        labels: ['18-24', '25-34', '35-44', '45+'],
+        datasets: [{
+          data: [40, 35, 20, 5],
+          backgroundColor: ['#2ecc71', '#9b59b6', '#f39c12', '#e74c3c']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Education Content Growth (Bar Chart)
+    var ctx4 = document.getElementById('contentGrowthChart').getContext('2d');
+    var contentGrowthChart = new Chart(ctx4, {
+      type: 'bar',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Education Content Growth',
+          data: [100, 200, 300, 400, 500],
+          backgroundColor: '#f39c12',
+          borderColor: '#f39c12',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Niche Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for Data Visualization -->
+  <style>
+    /* Resetting body styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f4f5f7; /* Light background for sports theme */
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    /* Main header */
+    h1 {
+      font-size: 42px;
+      margin-top: 30px;
+      font-weight: 700;
+      color: #e74c3c; /* Bold red color to represent sports energy */
+    }
+
+    /* Main content container */
+    .content-container {
+      width: 90%;
+      max-width: 1200px;
+      margin-top: 50px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Section titles */
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #e74c3c;
+      font-weight: 600;
+      border-bottom: 2px solid #e74c3c;
+      padding-bottom: 5px;
+    }
+
+    /* Section content */
+    .section {
+      margin-bottom: 50px;
+    }
+
+    /* Section paragraph text */
+    .section p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    /* Icon section layout */
+    .section-icons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .icon-box {
+      text-align: center;
+      background-color: #e74c3c;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      flex: 1;
+      margin: 0 10px;
+    }
+
+    .icon-box i {
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    /* Chart containers */
+    .chart-container {
+      margin-top: 40px;
+      width: 100%;
+      height: 400px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .pie-chart {
+      height: 300px;
+    }
+
+    /* Table section styling */
+    .table-container {
+      margin-top: 40px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px 18px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #e74c3c;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #f1f5f9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sports Niche Insights</h1>
+
+  <div class="content-container">
+    <!-- General Information Section -->
+    <div class="section">
+      <div class="section-title">General Information</div>
+      <p>Welcome to the Sports Niche Insights! This page provides key trends, influencer data, audience insights, and more to help you stay ahead in the sports industry.</p>
+    </div>
+
+    <!-- Market Size Visualization (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Market Size and Distribution</div>
+      <p>The global sports industry continues to grow, with several key segments seeing major increases in demand:</p>
+      <div class="chart-container pie-chart">
+        <canvas id="marketSizeChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Engagement by Time Visualization (Line Chart) -->
+    <div class="section">
+      <div class="section-title">Best Time for Sports Engagement</div>
+      <p>Maximize engagement by posting during optimal times when sports fans are most active:</p>
+      <div class="chart-container">
+        <canvas id="engagementTimeChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Famous Athletes and Influencers Section -->
+    <div class="section">
+      <div class="section-title">Top Sports Influencers</div>
+      <p>These athletes have become global sports icons with massive social media followings:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-football-ball"></i>
+          <p>Cristiano Ronaldo (500M Followers)</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-basketball-ball"></i>
+          <p>LeBron James (200M Followers)</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-baseball-ball"></i>
+          <p>Virat Kohli (180M Followers)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audience Demographics Visualization (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Sports Audience Demographics</div>
+      <p>Sports content attracts a diverse global audience. Here's a breakdown of who engages the most:</p>
+      <div class="chart-container">
+        <canvas id="audienceDemographicsChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Sports Content Growth (Bar Chart) -->
+    <div class="section">
+      <div class="section-title">Sports Content Growth</div>
+      <p>Engagement with sports content has seen rapid growth across platforms. Here's how it has expanded in the last few years:</p>
+      <div class="chart-container">
+        <canvas id="sportsContentGrowthChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Sports Trends Section -->
+    <div class="section">
+      <div class="section-title">Top Sports Trends</div>
+      <p>Here are the top emerging trends in the sports world:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-running"></i>
+          <p>Esports Growth</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-headphones-alt"></i>
+          <p>Sports Streaming</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-calendar-check"></i>
+          <p>Fan Engagement Platforms</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Monetization Strategies Section -->
+    <div class="section">
+      <div class="section-title">Monetization Opportunities</div>
+      <p>Sports content creators can explore various avenues for monetization:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-sponsor"></i>
+          <p>Brand Sponsorships</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-tv"></i>
+          <p>Paid Subscriptions</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-ticket-alt"></i>
+          <p>Event Ticketing</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Market Size Chart (Pie Chart)
+    var ctx1 = document.getElementById('marketSizeChart').getContext('2d');
+    var marketSizeChart = new Chart(ctx1, {
+      type: 'pie',
+      data: {
+        labels: ['Broadcasting Rights', 'Sponsorships', 'Merchandise', 'Event Ticketing'],
+        datasets: [{
+          data: [40, 30, 20, 10],
+          backgroundColor: ['#e74c3c', '#3498db', '#2ecc71', '#f39c12']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Engagement Time Chart (Line Chart)
+    var ctx2 = document.getElementById('engagementTimeChart').getContext('2d');
+    var engagementTimeChart = new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ['6 AM', '9 AM', '12 PM', '3 PM', '6 PM', '9 PM'],
+        datasets: [{
+          label: 'Engagement Time',
+          data: [50, 70, 85, 90, 80, 75],
+          borderColor: '#3498db',
+          fill: false,
+          tension: 0.1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Audience Demographics Chart (Pie Chart)
+    var ctx3 = document.getElementById('audienceDemographicsChart').getContext('2d');
+    var audienceDemographicsChart = new Chart(ctx3, {
+      type: 'pie',
+      data: {
+        labels: ['18-34 years', '35-44 years', '45+ years'],
+        datasets: [{
+          data: [60, 30, 10],
+          backgroundColor: ['#2ecc71', '#9b59b6', '#e74c3c']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Sports Content Growth Chart (Bar Chart)
+    var ctx4 = document.getElementById('sportsContentGrowthChart').getContext('2d');
+    var sportsContentGrowthChart = new Chart(ctx4, {
+      type: 'bar',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Sports Content Growth',
+          data: [50, 80, 120, 160, 200],
+          backgroundColor: '#f39c12',
+          borderColor: '#f39c12',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

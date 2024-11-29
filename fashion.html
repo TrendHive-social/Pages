@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fashion Niche Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for Data Visualization -->
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f7f0f9; /* Light background for fashion theme */
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-top: 20px;
+      font-weight: 600;
+      color: #9b59b6; /* Elegant purple for header */
+    }
+
+    .content-container {
+      width: 85%;
+      max-width: 1200px;
+      margin-top: 40px;
+      background-color: #ffffff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #9b59b6; /* Elegant purple */
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .section-icons {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+    }
+
+    .icon-box {
+      text-align: center;
+      background-color: #9b59b6;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      flex: 1;
+      margin: 5px;
+    }
+
+    .icon-box i {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .table-container {
+      margin-top: 40px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #9b59b6;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #f1f5f9;
+    }
+
+    .chart-container {
+      margin-top: 30px;
+      width: 100%;
+      height: 400px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .pie-chart {
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Fashion Niche Insights</h1>
+
+  <div class="content-container">
+    <!-- General Information Section -->
+    <div class="section">
+      <div class="section-title">General Information</div>
+      <p>Welcome to the Fashion Niche insights! Discover key statistics, influencers, and trends in the fashion industry.</p>
+    </div>
+
+    <!-- Market Size Visualization (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Market Size and Growth</div>
+      <p>The global fashion industry continues to grow, with steady increases in both physical and digital markets:</p>
+      <div class="chart-container pie-chart">
+        <canvas id="marketSizeChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Best Time to Post Visualization (Heatmap) -->
+    <div class="section">
+      <div class="section-title">Best Time to Post Content</div>
+      <p>The best times to post fashion content across various platforms:</p>
+      <div class="chart-container">
+        <canvas id="timeToPostChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Famous Creators and Engagement Data -->
+    <div class="section">
+      <div class="section-title">Famous Creators in the Fashion Niche</div>
+      <p>Some of the leading fashion influencers include:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-tshirt"></i>
+          <p>Chiara Ferragni (25M Followers)</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-shopping-bag"></i>
+          <p>Camila Coelho (9M Followers)</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-glasses"></i>
+          <p>Aimee Song (6M Followers)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Growth Visualization (Bar Chart) -->
+    <div class="section">
+      <div class="section-title">Content Growth Over the Years</div>
+      <p>Fashion content has seen significant growth over the last five years, driven by influencers, new trends, and emerging platforms:</p>
+      <div class="chart-container">
+        <canvas id="contentGrowthChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Trends in the Niche Visualization -->
+    <div class="section">
+      <div class="section-title">Key Trends in the Fashion Niche</div>
+      <p>The fashion industry is constantly evolving with new trends and styles. Some of the major trends include:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-tshirt"></i>
+          <p>Sustainable Fashion</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-hat-cowboy"></i>
+          <p>Streetwear</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-shoe-prints"></i>
+          <p>Activewear</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audience Demographics Visualization (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Audience Demographics</div>
+      <p>Here’s a breakdown of the typical audience for fashion content:</p>
+      <div class="chart-container">
+        <canvas id="audienceDemographicsChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Monetization Opportunities -->
+    <div class="section">
+      <div class="section-title">Monetization and Revenue Opportunities</div>
+      <p>Creators in the fashion space have various ways to monetize their content, from brand collaborations to affiliate marketing:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-credit-card"></i>
+          <p>Brand Partnerships</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-ad"></i>
+          <p>Sponsored Content</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-link"></i>
+          <p>Affiliate Marketing</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Market Size Chart (Pie Chart)
+    var ctx1 = document.getElementById('marketSizeChart').getContext('2d');
+    var marketSizeChart = new Chart(ctx1, {
+      type: 'pie',
+      data: {
+        labels: ['Luxury Fashion', 'Fast Fashion', 'Sustainable Fashion', 'Activewear'],
+        datasets: [{
+          data: [35, 40, 15, 10],
+          backgroundColor: ['#9b59b6', '#f39c12', '#2ecc71', '#3498db']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Time to Post Content Chart (Line Chart)
+    var ctx2 = document.getElementById('timeToPostChart').getContext('2d');
+    var timeToPostChart = new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ['8 AM', '10 AM', '12 PM', '2 PM', '4 PM', '6 PM', '8 PM'],
+        datasets: [{
+          label: 'Engagement',
+          data: [70, 80, 85, 90, 75, 80, 85],
+          borderColor: '#e74c3c',
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Content Growth Chart (Bar Chart)
+    var ctx3 = document.getElementById('contentGrowthChart').getContext('2d');
+    var contentGrowthChart = new Chart(ctx3, {
+      type: 'bar',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Content Growth (%)',
+          data: [10, 20, 35, 50, 70],
+          backgroundColor: '#e74c3c',
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Audience Demographics Chart (Pie Chart)
+    var ctx4 = document.getElementById('audienceDemographicsChart').getContext('2d');
+    var audienceDemographicsChart = new Chart(ctx4, {
+      type: 'pie',
+      data: {
+        labels: ['Female (80%)', 'Male (20%)'],
+        datasets: [{
+          data: [80, 20],
+          backgroundColor: ['#9b59b6', '#3498db']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

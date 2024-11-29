@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Niche Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for Data Visualization -->
+  <style>
+    /* General Body Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f4f4f9; /* Light neutral background to allow content to stand out */
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    /* Main Header */
+    h1 {
+      font-size: 40px;
+      margin-top: 30px;
+      font-weight: 700;
+      color: #ff7043; /* Warm, appetizing orange for food */
+    }
+
+    /* Content Container */
+    .content-container {
+      width: 90%;
+      max-width: 1200px;
+      margin-top: 50px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #ff7043;
+      font-weight: 600;
+      border-bottom: 2px solid #ff7043;
+      padding-bottom: 5px;
+    }
+
+    /* Section Content */
+    .section {
+      margin-bottom: 50px;
+    }
+
+    /* Section Text */
+    .section p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    /* Icon Section Layout */
+    .section-icons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .icon-box {
+      text-align: center;
+      background-color: #ff7043;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      flex: 1;
+      margin: 0 10px;
+    }
+
+    .icon-box i {
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    /* Chart Containers */
+    .chart-container {
+      margin-top: 40px;
+      width: 100%;
+      height: 400px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .pie-chart {
+      height: 300px;
+    }
+
+    /* Table Styling */
+    .table-container {
+      margin-top: 40px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px 18px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #ff7043;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #f1f5f9;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Food Niche Insights</h1>
+
+  <div class="content-container">
+    <!-- General Information Section -->
+    <div class="section">
+      <div class="section-title">General Information</div>
+      <p>The food niche is a rapidly growing space, driven by food influencers, recipes, and food trends. This page will give you key insights into market trends, popular food influencers, and audience demographics to help you grow in the food niche.</p>
+    </div>
+
+    <!-- Food Market Overview (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Food Market Breakdown</div>
+      <p>Here’s how the food industry breaks down by market segment:</p>
+      <div class="chart-container pie-chart">
+        <canvas id="marketSizeChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Social Media Engagement (Line Chart) -->
+    <div class="section">
+      <div class="section-title">Social Media Engagement</div>
+      <p>The engagement levels for food-related content across social media platforms have surged in the last few years. Check out the data below:</p>
+      <div class="chart-container">
+        <canvas id="engagementChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Popular Food Creators (Icons) -->
+    <div class="section">
+      <div class="section-title">Popular Food Creators</div>
+      <p>Some of the top food influencers who have taken the digital food space by storm:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-utensils"></i>
+          <p>Gordon Ramsay</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-blender"></i>
+          <p>Jamie Oliver</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-cookie"></i>
+          <p>Rosanna Pansino</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Food Trends (Bar Chart) -->
+    <div class="section">
+      <div class="section-title">Top Food Trends</div>
+      <p>The food industry constantly evolves with new food trends. Here are some of the top food trends:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-leaf"></i>
+          <p>Plant-Based Eating</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-bowl-food"></i>
+          <p>Meal Kits</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-coffee"></i>
+          <p>Specialty Coffees</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Food Demographics (Pie Chart) -->
+    <div class="section">
+      <div class="section-title">Food Audience Demographics</div>
+      <p>The food niche has a diverse audience, ranging from food lovers to home chefs and healthy eaters:</p>
+      <div class="chart-container">
+        <canvas id="audienceDemographicsChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Monetization Opportunities -->
+    <div class="section">
+      <div class="section-title">Monetization Opportunities</div>
+      <p>Food content creators can monetize through various methods, including sponsorships and affiliate marketing. Here are some opportunities:</p>
+      <div class="section-icons">
+        <div class="icon-box">
+          <i class="fas fa-briefcase"></i>
+          <p>Brand Sponsorships</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-tags"></i>
+          <p>Product Affiliate Marketing</p>
+        </div>
+        <div class="icon-box">
+          <i class="fas fa-youtube"></i>
+          <p>Recipe Videos</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Food Market Breakdown (Pie Chart)
+    var ctx1 = document.getElementById('marketSizeChart').getContext('2d');
+    var marketSizeChart = new Chart(ctx1, {
+      type: 'pie',
+      data: {
+        labels: ['Healthy Food', 'Fast Food', 'Beverages', 'Organic Food'],
+        datasets: [{
+          data: [35, 30, 20, 15],
+          backgroundColor: ['#ff7043', '#ffbc42', '#66bb6a', '#ffee58']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Engagement Chart (Line Chart)
+    var ctx2 = document.getElementById('engagementChart').getContext('2d');
+    var engagementChart = new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Social Media Engagement',
+          data: [50, 70, 90, 120, 150],
+          borderColor: '#ff7043',
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+
+    // Audience Demographics Chart (Pie Chart)
+    var ctx3 = document.getElementById('audienceDemographicsChart').getContext('2d');
+    var demographicsChart = new Chart(ctx3, {
+      type: 'pie',
+      data: {
+        labels: ['Women (60%)', 'Men (40%)'],
+        datasets: [{
+          data: [60, 40],
+          backgroundColor: ['#ff7043', '#66bb6a']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
